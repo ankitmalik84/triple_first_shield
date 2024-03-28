@@ -44,8 +44,8 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Image.asset(
                       'assets/img1.png', // Replace 'assets/img1.png' with your image path
-                      width: 250, // Adjust the width of the image as needed
-                      height: 270, // Adjust the height of the image as needed
+                      width: 500, // Adjust the width of the image as needed
+                      height: 315, // Adjust the height of the image as needed
                     ),
                     FractionallySizedBox(
                       widthFactor:
@@ -114,17 +114,25 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-// Define a new screen widget to display the list of installed banned apps or the message
-class BannedAppsScreen extends StatelessWidget {
-  final List<String> installedBannedApps;
+// Define a new screen widget to display the list of installed banned apps or the messageclass BannedAppsScreen extends StatefulWidget {
+class BannedAppsScreen extends StatefulWidget {
+  final List<AppInfo> installedBannedApps;
 
-  const BannedAppsScreen({super.key, required this.installedBannedApps});
+  const BannedAppsScreen({Key? key, required this.installedBannedApps})
+      : super(key: key);
+
+  @override
+  _BannedAppsScreenState createState() => _BannedAppsScreenState();
+}
+
+class _BannedAppsScreenState extends State<BannedAppsScreen> {
+  bool _isUninstalling = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("List of Banned Apps")),
-      body: installedBannedApps.isEmpty
+      body: widget.installedBannedApps.isEmpty
           ? const Center(
               child: Text(
                 'No banned app available',
@@ -132,12 +140,67 @@ class BannedAppsScreen extends StatelessWidget {
               ),
             )
           : ListView.builder(
-              itemCount: installedBannedApps.length,
+              itemCount: widget.installedBannedApps.length,
               itemBuilder: (context, index) {
-                String appName = installedBannedApps[index];
+                var app = widget.installedBannedApps[index];
                 return Card(
                   child: ListTile(
-                    title: Text(appName),
+                    title: Text(app.name),
+                    subtitle: Text(app.packageName),
+                    onTap: () async {
+                      setState(() {
+                        _isUninstalling = true;
+                      });
+
+                      // Show "Please wait" message
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text(
+                              'Process to Uninstalling app... Please wait.'),
+                        ),
+                      );
+                      var appPackage = app.packageName;
+                      // Uninstall the app
+                      bool? uninstallIsSuccessful =
+                          await InstalledApps.uninstallApp(app.packageName);
+
+                      setState(() {
+                        _isUninstalling = false;
+                      });
+
+                      // Wait for the uninstallation process to complete
+                      await Future.delayed(const Duration(seconds: 2));
+
+                      // Check app installation status
+                      bool? appIsInstalled =
+                          await InstalledApps.isAppInstalled(appPackage);
+
+                      // Wait for the checking process to complete
+                      await Future.delayed(const Duration(seconds: 1));
+                      if (uninstallIsSuccessful == true &&
+                          appIsInstalled == false) {
+                        // Remove the uninstalled app from the list
+                        setState(() {
+                          widget.installedBannedApps.removeAt(index);
+                        });
+
+                        // Show success message
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('App uninstalled successfully.'),
+                          ),
+                        );
+                      } else {
+                        // Show error message
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Failed to uninstall the app.'),
+                          ),
+                        );
+                      }
+                    },
+                    onLongPress: () =>
+                        InstalledApps.openSettings(app.packageName),
                   ),
                 );
               },
@@ -154,8 +217,8 @@ class InstalledAppsScreen extends StatefulWidget {
 }
 
 class _InstalledAppsScreenState extends State<InstalledAppsScreen> {
-  List<String> installedBannedApps = [];
-  HashSet<String> bannedAppsHashSet = HashSet();
+  List<AppInfo> installedBannedApps = [];
+  // HashSet<String> bannedAppsHashSet = HashSet();
   bool _scanning = false;
 
   @override
@@ -588,7 +651,6 @@ class _InstalledAppsScreenState extends State<InstalledAppsScreen> {
     // Filter installed apps to find banned apps
     installedBannedApps = installedApps
         .where((app) => lowerCaseBannedApps.contains(app.name.toLowerCase()))
-        .map((app) => app.name) // Extract only app names
         .toList();
 
     // Print the number of installed banned apps
