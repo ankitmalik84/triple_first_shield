@@ -1,6 +1,6 @@
 # 🛡️ TRIPLE FIRST SIG REGT
 
-Welcome to Triple Shield, a Flutter application designed with security in mind, particularly for high-confidential areas like army cantonments.
+Welcome to Triple First Sig Regt, a Flutter application designed with security in mind, particularly for high-confidential areas like army cantonments.
 
 ## Purpose
 
@@ -14,10 +14,10 @@ If you're new to Flutter development, here are some resources to help you get st
 - [📚 Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 - [📘 Flutter Online Documentation](https://docs.flutter.dev/)
 
-For more detailed information on Flutter development and usage of the `installed_apps` package, refer to the [online documentation](https://docs.flutter.dev/), which provides tutorials, samples, guidance on mobile development, and a full API reference.
+For more detailed information on Flutter development and usage of the `installed_apps.dart` , `app_info.dart`,` `material.dart` packages, refer to the [online documentation](https://docs.flutter.dev/), which provides tutorials, samples, guidance on mobile development, and a full API reference.
 
 ## Development Details
 
-During the development of Triple Shield, the Flutter package `installed_apps` was utilized. This package facilitated the functionality to scan installed applications on a device and identify those that are restricted within army cantonment areas.
+During the development of Triple First Sig Regt, the Flutter package `installed_apps` , `app_info.dart`,` `material.dart` packages was utilized. This package facilitated the functionality to scan installed applications on a device and identify those that are restricted within army cantonment areas.
 
 For further information on the `installed_apps` package, please refer to the [📦 documentation](https://pub.dev/packages/installed_apps).
