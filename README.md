@@ -14,10 +14,15 @@ If you're new to Flutter development, here are some resources to help you get st
 - [📚 Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 - [📘 Flutter Online Documentation](https://docs.flutter.dev/)
 
-For more detailed information on Flutter development and usage of the `installed_apps.dart` , `app_info.dart`,` `material.dart` packages, refer to the [online documentation](https://docs.flutter.dev/), which provides tutorials, samples, guidance on mobile development, and a full API reference.
+For more detailed information on Flutter development and usage of the `installed_apps.dart` , `app_info.dart`,`material.dart` packages, refer to the [online documentation](https://docs.flutter.dev/), which provides tutorials, samples, guidance on mobile development, and a full API reference.
 
 ## Development Details
 
-During the development of Triple First Sig Regt, the Flutter package `installed_apps` , `app_info.dart`,` `material.dart` packages was utilized. This package facilitated the functionality to scan installed applications on a device and identify those that are restricted within army cantonment areas.
+During the development of Triple First Sig Regt, the Flutter package `installed_apps` , `app_info.dart`,`material.dart` packages was utilized. This package facilitated the functionality to scan installed applications on a device and identify those that are restricted within army cantonment areas.
 
 For further information on the `installed_apps` package, please refer to the [📦 documentation](https://pub.dev/packages/installed_apps).
+
+## Screenshots
+
+![Screenshot 1](screenshots/screenshot1.png) ![Screenshot 2](screenshots/screenshot2.png)
+![Screenshot 3](screenshots/screenshot3.png) ![Screenshot 4](screenshots/screenshot4.png)
