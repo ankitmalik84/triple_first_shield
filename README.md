@@ -24,6 +24,6 @@ For further information on the `installed_apps` package, please refer to the [ðŸ
 
 ## Screenshots
 
-<img src="/ss1.jpg" alt="Screenshot 1" width="400" style="border-radius: 15px; border: 2px solid #999; margin-right: 20px;"/> <img src="/ss2.jpg" alt="Screenshot 2" width="400" style="border-radius: 15px; border: 2px solid #999;"/>
+<img src="/ss1.jpg" alt="Screenshot 1" width="300" style="border-radius: 25px; border: 2px solid #999; margin-right: 20px;"/> <img src="/ss2.jpg" alt="Screenshot 2" width="300" style="border-radius: 25px; border: 2px solid #999;"/>
 
 <!-- ![Screenshot 3](screenshots/screenshot3.png) ![Screenshot 4](screenshots/screenshot4.png) -->
