@@ -1,4 +1,4 @@
-# ![Screenshot 1](./assets/icon.jpg) TRIPLE FIRST SIG REGT
+# ![Logo](./assets/icon.jpg) TRIPLE FIRST SIG REGT
 
 Welcome to Triple First Sig Regt, a Flutter application designed with security in mind, particularly for high-confidential areas like army cantonments.
 
@@ -24,5 +24,6 @@ For further information on the `installed_apps` package, please refer to the [ðŸ
 
 ## Screenshots
 
-![Screenshot 1](screenshots/screenshot1.png) ![Screenshot 2](screenshots/screenshot2.png)
-![Screenshot 3](screenshots/screenshot3.png) ![Screenshot 4](screenshots/screenshot4.png)
+![Screenshot 1](/ss1.jpg) ![Screenshot 2](/ss2.jpg)
+
+<!-- ![Screenshot 3](screenshots/screenshot3.png) ![Screenshot 4](screenshots/screenshot4.png) -->
