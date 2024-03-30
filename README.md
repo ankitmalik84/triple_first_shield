@@ -1,4 +1,4 @@
-# <img src="./assets/icon.jpg" alt="Logo" width="50"/> **TRIPLE FIRST SIG REGT**
+# <img src="./assets/logo.png" alt="Logo" width="50"/> **TRIPLE FIRST SIG REGT**
 
 Welcome to Triple First Sig Regt, a Flutter application designed with security in mind, particularly for high-confidential areas like army cantonments.
 
